@@ -1,0 +1,5 @@
+Locator expected to be visible.
+
+locator("#dashboard")
+
+Timeout 30000ms exceeded.

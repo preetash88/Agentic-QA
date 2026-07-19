@@ -1,0 +1,10 @@
+BUG-1234
+
+Title:
+Login failure after prolonged inactivity.
+
+Root Cause:
+Expired JWT token caused API calls to return 401 Unauthorized.
+
+Resolution:
+Implemented token refresh endpoint.

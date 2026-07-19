@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Environment variables
+.env
+*.env
+
+# Pytest
+.pytest_cache/
+pytest_cache/
+.cache/
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright (if applicable)
+playwright-report/
+test-results/
+screenshots/
+videos/
+traces/
+
+# Allure / Reports
+allure-results/
+allure-report/
+reports/
+
+# Jupyter (if used for analysis)
+.ipynb_checkpoints/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# Distribution / packaging
+*.spec
+
+.deepeval/
+qdrant_data/

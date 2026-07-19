@@ -1,0 +1,6 @@
+[project]
+name = "qa-sdet"
+version = "0.1.0"
+
+[tool.setuptools]
+packages = ["agents","mcp_integration","rag"]

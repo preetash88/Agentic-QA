@@ -1,0 +1,8 @@
+JWT tokens expire after 60 minutes.
+
+When a 401 Unauthorized occurs immediately after successful login,
+the most likely cause is token expiration.
+
+Recommended fix:
+- Refresh token before expiry
+- Validate expiration timestamp before API calls
