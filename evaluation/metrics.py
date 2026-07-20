@@ -8,6 +8,7 @@ from evaluation.models.ollama_deepeval import OllamaDeepeval
 
 class EvaluationEngine(Enum):
     DEEPEVAL = "deepeval"
+    PROMPTFOO = "promptfoo"
 
 
 class MetricFactory:

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -10,3 +12,4 @@ class EvaluationResult(BaseModel):
     score: float = Field(...)
     passed: bool = Field(...)
     reason: str = Field(...)
+    latency: Optional[float] = Field(None)

@@ -1,0 +1,466 @@
+{
+  "evalId": "eval-rTB-2026-07-20T06:51:35",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-07-20T06:51:35.159Z",
+    "prompts": [
+      {
+        "id": "e9f429d4769a2cfc9bde879af3a315079ad96ffc5184a766429d7a2b137a70b4",
+        "raw": "{{prompt}}\n",
+        "label": "{{prompt}}\n",
+        "provider": "ollama:qwen3:8b",
+        "metrics": {
+          "score": 3,
+          "testPassCount": 3,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 3,
+          "assertFailCount": 0,
+          "totalLatencyMs": 35,
+          "tokenUsage": {
+            "prompt": 46,
+            "completion": 1330,
+            "cached": 0,
+            "total": 1376,
+            "numRequests": 3,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Reykjavik"
+              }
+            }
+          ]
+        },
+        "id": "dd2d3716-828a-4336-b620-9506048b8085",
+        "latencyMs": 13,
+        "namedScores": {},
+        "prompt": {
+          "raw": "What is the capital of Iceland?\n",
+          "label": "{{prompt}}\n",
+          "config": {}
+        },
+        "promptId": "e9f429d4769a2cfc9bde879af3a315079ad96ffc5184a766429d7a2b137a70b4",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:qwen3:8b",
+          "label": ""
+        },
+        "response": {
+          "output": "The capital of Iceland is **Reykjavik**. It is the largest city in the country and serves as the political, cultural, and economic center. Reykjavik is also renowned for its geothermal energy use and stunning natural landscapes, including the Northern Lights.",
+          "tokenUsage": {
+            "prompt": 17,
+            "completion": 247,
+            "total": 264
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "prompt": "What is the capital of Iceland?"
+          },
+          "assert": [
+            {
+              "type": "contains",
+              "value": "Reykjavik"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 17,
+          "completion": 247,
+          "cached": 0,
+          "total": 264,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "prompt": "What is the capital of Iceland?"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Newton"
+              }
+            }
+          ]
+        },
+        "id": "4dd34647-1385-425d-9ddd-93183e6f871f",
+        "latencyMs": 11,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Who discovered gravity?\n",
+          "label": "{{prompt}}\n",
+          "config": {}
+        },
+        "promptId": "e9f429d4769a2cfc9bde879af3a315079ad96ffc5184a766429d7a2b137a70b4",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:qwen3:8b",
+          "label": ""
+        },
+        "response": {
+          "output": "The concept of gravity as a universal force was formalized by **Isaac Newton** in the 17th century. However, it's important to clarify that Newton did not \"discover\" gravity itself, as the phenomenon of objects falling toward the Earth (or other celestial bodies) has been observed for millennia. Instead, Newton provided the **scientific framework** to explain gravity through his **Law of Universal Gravitation** (published in 1687). \n\n### Key Points:\n1. **Isaac Newton** (1643–1727):  \n   - Formulated the mathematical law of gravity, stating that every mass attracts every other mass with a force proportional to their masses and inversely proportional to the square of the distance between them.  \n   - His work built on earlier ideas from scientists like **Galileo Galilei** (who studied falling objects) and **Johannes Kepler** (who described planetary motion).  \n\n2. **Earlier Observations**:  \n   - Ancient philosophers like **Aristotle** (4th century BCE) theorized that objects fall due to their \"natural place\" in the universe, but this was not a scientific explanation.  \n   - The idea of gravity as a force was not widely accepted until Newton's time.  \n\n3. **Cultural Story**:  \n   - The famous anecdote about Newton being inspired by an apple falling from a tree is a popular myth, though it likely symbolizes his curiosity about the natural world rather than a literal event.  \n\nIn summary, **Isaac Newton** is credited with the scientific discovery and formulation of gravity as a universal force, but the phenomenon itself has been observed and pondered by humans for centuries.",
+          "tokenUsage": {
+            "prompt": 14,
+            "completion": 689,
+            "total": 703
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "prompt": "Who discovered gravity?"
+          },
+          "assert": [
+            {
+              "type": "contains",
+              "value": "Newton"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 14,
+          "completion": 689,
+          "cached": 0,
+          "total": 703,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "prompt": "Who discovered gravity?"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "4"
+              }
+            }
+          ]
+        },
+        "id": "273260fd-bdcb-4275-9d5c-72aae5bfcd4a",
+        "latencyMs": 11,
+        "namedScores": {},
+        "prompt": {
+          "raw": "2 + 2\n",
+          "label": "{{prompt}}\n",
+          "config": {}
+        },
+        "promptId": "e9f429d4769a2cfc9bde879af3a315079ad96ffc5184a766429d7a2b137a70b4",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:qwen3:8b",
+          "label": ""
+        },
+        "response": {
+          "output": "The result of 2 + 2 is **4**.",
+          "tokenUsage": {
+            "prompt": 15,
+            "completion": 394,
+            "total": 409
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "prompt": "2 + 2"
+          },
+          "assert": [
+            {
+              "type": "contains",
+              "value": "4"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 15,
+          "completion": 394,
+          "cached": 0,
+          "total": 409,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "prompt": "2 + 2"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 3,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 46,
+        "completion": 1330,
+        "cached": 0,
+        "total": 1376,
+        "numRequests": 3,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 67,
+      "evaluationDurationMs": 67
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "QA_SDET Prompt Evaluation",
+    "prompts": [
+      "{{prompt}}\n"
+    ],
+    "providers": [
+      {
+        "id": "ollama:qwen3:8b"
+      }
+    ],
+    "tests": [
+      {
+        "vars": {
+          "prompt": "What is the capital of Iceland?"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "Reykjavik"
+          }
+        ]
+      },
+      {
+        "vars": {
+          "prompt": "Who discovered gravity?"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "Newton"
+          }
+        ]
+      },
+      {
+        "vars": {
+          "prompt": "2 + 2"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "4"
+          }
+        ]
+      }
+    ],
+    "env": {},
+    "outputPath": [
+      "promptfoo-result.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {}
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.19",
+    "nodeVersion": "v24.14.1",
+    "platform": "win32",
+    "arch": "x64",
+    "exportedAt": "2026-07-20T06:51:35.282Z",
+    "evaluationCreatedAt": "2026-07-20T06:51:35.159Z"
+  },
+  "vars": [
+    "prompt"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": true,
+    "repeat": 1,
+    "maxConcurrency": 4,
+    "cache": true
+  }
+}
