@@ -1,0 +1,27 @@
+description: QA_SDET Prompt Evaluation
+
+providers:
+  - id: ollama:qwen3:8b
+
+prompts:
+  - |
+    {{prompt}}
+
+tests:
+  - vars:
+      prompt: What is the capital of Iceland?
+    assert:
+      - type: contains
+        value: Reykjavik
+
+  - vars:
+      prompt: Who discovered gravity?
+    assert:
+      - type: contains
+        value: Newton
+
+  - vars:
+      prompt: 2 + 2
+    assert:
+      - type: contains
+        value: "4"

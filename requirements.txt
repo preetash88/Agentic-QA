@@ -1,6 +1,9 @@
 pytest
 pytest-playwright
 playwright
+allure-pytest
+allure-python-commons
+
 axe-playwright-python
 requests
 jsonschema
@@ -13,7 +16,6 @@ langgraph
 langsmith
 
 sentence-transformers
-
 qdrant-client
 
 deepeval

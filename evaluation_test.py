@@ -2,24 +2,22 @@ from evaluation.metrics import EvaluationEngine
 from evaluation.models.evaluation_request import EvaluationRequest
 from evaluation.service import EvaluationService
 
-print("1. Creating service...")
-service = EvaluationService()
-print("✓ Service created")
 
-request = EvaluationRequest(
-    prompt="What is the capital of Iceland?",
-    actual_output="The capital of Iceland is Reykjavik",
-    expected_output="Reykjavik",
-    metrics=["answer_relevancy", "faithfulness"],
-    engine=EvaluationEngine.DEEPEVAL
-)
+def test_promptfoo():
+    service = EvaluationService()
 
-print("2. Request created")
+    request = EvaluationRequest(
+        prompt="What is the capital of Iceland?",
+        actual_output="",
+        expected_output="Reykjavik",
+        metrics=["contains"],
+        engine=EvaluationEngine.PROMPTFOO,
+    )
 
-print("3. Calling evaluate()")
-results = service.evaluate(request)
+    results = service.evaluate(request)
 
-print("4. Evaluation finished")
+    for result in results:
+        print(result.model_dump_json(indent=2))
 
-for result in results:
-    print(result.model_dump())
+# import shutil
+# print(shutil.which("npx"))
