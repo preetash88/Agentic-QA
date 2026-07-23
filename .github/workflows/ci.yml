@@ -269,3 +269,22 @@ jobs:
           echo "✓ AI Evaluation"
           echo ""
           echo "Artifacts uploaded successfully."
+
+  docker-build:
+    needs:
+      - ai-evaluation
+      - performance-tests
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile.runtime
+          push: false
+          tags: qa_sdet:latest

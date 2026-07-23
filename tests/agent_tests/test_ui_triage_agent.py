@@ -1,7 +1,7 @@
 import asyncio
 
-from agents.ui_triage_agent import analyze_ui_failure
-from mcp_integration.playwright_client import execute_playwright_tool
+from src.agents import analyze_ui_failure
+from src.mcp_integration.client.playwright_client import execute_playwright_tool
 
 
 def test_ui_triage():

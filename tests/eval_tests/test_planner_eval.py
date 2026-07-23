@@ -1,6 +1,6 @@
-from agents.planner_agent import generate_test_plan
-from evaluation.evaluator import Evaluator
-from evaluation.metrics import MetricFactory
+from src.agents.planner_agent import generate_test_plan
+from src.evaluation import Evaluator
+from src.evaluation import MetricFactory
 
 
 def test_planner_eval():

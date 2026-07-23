@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-from mcp_integration.filesystem_client import execute_filesystem_tool
+from src.mcp_integration.client.filesystem_client import execute_filesystem_tool
 
 
 def test_read_file():

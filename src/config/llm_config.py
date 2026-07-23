@@ -1,0 +1,4 @@
+import os
+
+DEFAULT_EVALUATION_MODEL = os.getenv("DEFAULT_EVALUATION_MODEL", "qwen3:8b")
+DEFAULT_TEMPERATURE = float(os.getenv("DEFAULT_TEMPERATURE", "0.0"))

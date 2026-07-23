@@ -1,6 +1,6 @@
 import requests
 
-from agents.security_analysis_agent import analyze_security
+from src.agents.security_analysis_agent import analyze_security
 
 
 def test_security_analysis():

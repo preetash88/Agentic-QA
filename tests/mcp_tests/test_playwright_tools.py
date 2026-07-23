@@ -1,6 +1,6 @@
 import asyncio
 
-from mcp_integration.playwright_client import get_playwright_tools
+from src.mcp_integration.client.playwright_client import get_playwright_tools
 
 
 def test_playwright_tools():

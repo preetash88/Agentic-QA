@@ -1,6 +1,6 @@
 import asyncio
 
-from mcp_integration.playwright_client import (
+from src.mcp_integration.client.playwright_client import (
     execute_playwright_tool
 )
 

@@ -1,8 +1,7 @@
 import asyncio
-import json
 
-from agents.bug_triage_agent import analyze_failure
-from mcp_integration.filesystem_client import read_text_file
+from src.agents.bug_triage_agent import analyze_failure
+from src.mcp_integration.client.filesystem_client import read_text_file
 
 
 def test_bug_triage_agent():

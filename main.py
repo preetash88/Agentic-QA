@@ -1,16 +1,64 @@
-# This is a sample Python script.
+import os
+from contextlib import asynccontextmanager
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from fastapi import FastAPI
+from kafka import KafkaProducer
+from qdrant_client import QdrantClient
+from redis import Redis
+
+from src.orchestration.workflow import AgentWorkflow
+from src.infra.infra_manager import InfraManager
+from src.api.health import router as health_router
+from src.api.metrics import router as metrics_router
+from src.api.workflow import router as workflow_router
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Creating Redis Client...")
+    redis_client = Redis(
+        host=os.getenv("REDIS_HOST", "redis"),
+        port=int(os.getenv("REDIS_PORT", 6379)),
+        decode_responses=True,
+    )
+
+    print("Creating Kafka Producer...")
+    kafka_producer = KafkaProducer(
+        bootstrap_servers=os.getenv("KAFKA_BOOTSTRAP", "kafka:9092"),
+    )
+
+    print("Creating Qdrant Client...")
+    qdrant_client = QdrantClient(
+        host=os.getenv("QDRANT_HOST", "qdrant"),
+        port=int(os.getenv("QDRANT_PORT", 8080)),
+    )
+
+    print("Registering Redis Client...")
+    InfraManager.register_redis(redis_client)
+
+    print("Registering Kafka Producer...")
+    InfraManager.register_kafka(kafka_producer)
+
+    print("Registering Qdrant Client...")
+    InfraManager.register_qdrant(qdrant_client)
+
+    print("Starting QA_SDET Runtime...")
+    app.state.workflow = AgentWorkflow()
+
+    yield
+
+    print("Stopping QA_SDET Runtime...")
+
+    InfraManager.shutdown()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+app = FastAPI(
+    title="QA_SDET",
+    description="Enterprise Agentic AI Testing Framework",
+    version="1.0.0",
+    lifespan=lifespan
+)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+app.include_router(health_router)
+app.include_router(metrics_router)
+app.include_router(workflow_router)

@@ -1,4 +1,4 @@
-from orchestration.workflow import AgentWorkflow
+from src.orchestration.workflow import AgentWorkflow
 
 
 def test_workflow():

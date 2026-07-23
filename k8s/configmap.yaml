@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qa_sdet-config
+  namespace: qa_sdet
+
+data:
+  REDIS_HOST: "redis"
+  KAFKA_BOOTSTRAP: "kafka:9092"
+  QDRANT_HOST: "qdrant"
+  LANGCHAIN_TRACING_V2: "true"

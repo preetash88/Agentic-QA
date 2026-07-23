@@ -1,4 +1,4 @@
-from agents.planner_agent import generate_test_plan
+from src.agents.planner_agent import generate_test_plan
 
 
 def test_planner_agent():
