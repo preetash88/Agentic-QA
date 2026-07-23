@@ -1,7 +1,7 @@
 import asyncio
 
-from agents.models import GithubIssue
-from mcp_integration.github_client import create_issue
+from src.agents.result import GithubIssue
+from src.mcp_integration.client.github_client import create_issue
 
 
 def test_create_issue():

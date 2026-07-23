@@ -1,4 +1,4 @@
-from rag.retrievers.hybrid_retriever import retrieve
+from src.rag.retrievers.hybrid_retriever import retrieve
 
 
 def test_hybrid_retrieval():

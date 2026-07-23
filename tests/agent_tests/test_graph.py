@@ -1,4 +1,4 @@
-from agents.graph import workflow
+from src.agents import workflow
 
 
 def test_graph():

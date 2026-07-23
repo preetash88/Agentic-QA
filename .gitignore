@@ -53,7 +53,7 @@ traces/
 # Allure / Reports
 allure-results/
 allure-report/
-reporting/
+src/reporting/
 
 # Jupyter (if used for analysis)
 .ipynb_checkpoints/

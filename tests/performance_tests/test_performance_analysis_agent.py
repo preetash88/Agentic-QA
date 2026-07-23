@@ -1,4 +1,4 @@
-from agents.performance_analysis_agent import analyze_performance
+from src.agents.performance_analysis_agent import analyze_performance
 
 
 def test_performance_analysis():

@@ -1,6 +1,6 @@
 import asyncio
 
-from mcp_integration.filesystem_client import get_filesystem_tools
+from src.mcp_integration.client.filesystem_client import get_filesystem_tools
 
 
 def test_filesystem_mcp():

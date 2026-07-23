@@ -1,9 +1,9 @@
 import asyncio
 
-from agents.bug_triage_agent import analyze_failure
-from agents.duplicate_detector import detect_duplicates
-from agents.github_mapper import bug_report_github_issue
-from mcp_integration.github_client import create_issue
+from src.agents.bug_triage_agent import analyze_failure
+from src.agents.duplicate_detector import detect_duplicates
+from src.agents.github_mapper import bug_report_github_issue
+from src.mcp_integration.client.github_client import create_issue
 
 
 def test_e2e_bug_triage():

@@ -1,6 +1,6 @@
 import asyncio
 
-from mcp_integration.github_client import get_github_tools
+from src.mcp_integration.client.github_client import get_github_tools
 
 
 def test_github_tools():

@@ -1,6 +1,6 @@
-from evaluation.metrics import EvaluationEngine
-from evaluation.models.evaluation_request import EvaluationRequest
-from evaluation.service import EvaluationService
+from src.evaluation import EvaluationEngine
+from src.evaluation.models.evaluation_request import EvaluationRequest
+from src.evaluation import EvaluationService
 
 
 def test_promptfoo():

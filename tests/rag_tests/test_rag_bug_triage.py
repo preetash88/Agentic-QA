@@ -1,4 +1,4 @@
-from agents.bug_triage_agent import analyze_failure
+from src.agents.bug_triage_agent import analyze_failure
 
 
 def test_rag_bug_triage():

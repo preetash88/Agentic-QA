@@ -1,4 +1,4 @@
-from rag.retrieve import retrieve
+from src.rag.retrieve import retrieve
 
 
 def test_retrieval():

@@ -30,4 +30,8 @@ docling
 fastembed
 rank-bm25
 langchain-experimental
-langchain-community
+
+fastapi
+uvicorn[standard]
+kafka-python-ng
+redis
