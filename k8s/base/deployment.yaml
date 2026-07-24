@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: qa-sdet
+  namespace: qa-sdet
+
+  labels:
+    app: qa-sdet
+    component: api
+    version: v1
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: qa-sdet
+
+  template:
+    metadata:
+      labels:
+        app: qa-sdet
+        component: api
+        version: v1
+
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: qa-sdet
+          image: qa_sdet-api:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8000
+
+          envFrom:
+            - configMapRef:
+                name: qa-sdet-config
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"

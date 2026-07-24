@@ -20,4 +20,7 @@ def generate_performance_tests(performance_ideas: list[str]):
     - Volume
     """
 
-    return llm.invoke(prompt).content
+    return llm.invoke(
+        agent_name="performance_agent",
+        prompt=prompt
+    ).content

@@ -1,4 +1,3 @@
-from src.agents.performance_agent import generate_performance_tests
 from src.agents.api_agent import generate_api_tests
 from src.agents.planner_agent import generate_test_plan
 from src.agents.security_agent import generate_security_tests
@@ -93,22 +92,22 @@ def security_node(state: WorkflowState):
     }
 
 
-def performance_node(state: WorkflowState):
-    performance_tests = tracer.wrap(
-        "performance_agent",
-        generate_performance_tests,
-        state["test_plan"],
-    )
-    event_bus.publish(
-        AGENT_EVENTS,
-        {
-            "agent": "performance",
-            "status": "completed",
-            "requirement": state["requirement"],
-            "performance_tests": performance_tests
-        }
-    )
-
-    return {
-        "performance_tests": performance_tests
-    }
+# def performance_node(state: WorkflowState):
+#     performance_tests = tracer.wrap(
+#         "performance_agent",
+#         generate_performance_tests,
+#         state["test_plan"],
+#     )
+#     event_bus.publish(
+#         AGENT_EVENTS,
+#         {
+#             "agent": "performance",
+#             "status": "completed",
+#             "requirement": state["requirement"],
+#             "performance_tests": performance_tests
+#         }
+#     )
+#
+#     return {
+#         "performance_tests": performance_tests
+#     }

@@ -1,3 +1,5 @@
+import os
+
 from deepeval.models import DeepEvalBaseLLM
 from langchain_ollama import ChatOllama
 
@@ -13,7 +15,11 @@ class OllamaDeepeval(DeepEvalBaseLLM):
         super().__init__(model=model)
 
     def load_model(self):
-        return ChatOllama(model=self.name,temperature=self.temperature)
+        return ChatOllama(
+            model=self.name,
+            temperature=self.temperature,
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        )
 
     def generate(self, prompt: str, **kwargs) -> str:
         response = self.model.invoke(prompt)

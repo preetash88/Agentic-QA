@@ -1,4 +1,5 @@
 import json
+import os
 from typing import TypeVar, Type
 
 from langchain_ollama import ChatOllama
@@ -16,7 +17,12 @@ class CachedLLM:
         self.temperature = temperature
 
     def with_structured_output(self, schema: Type[T], agent_name: str):
-        llm = ChatOllama(model=self.model, temperature=self.temperature).with_structured_output(schema)
+        llm = ChatOllama(
+            model=self.model,
+            temperature=self.temperature,
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        ).with_structured_output(
+            schema)
 
         class StructuredInvoker:
 
@@ -53,7 +59,11 @@ class CachedLLM:
         return StructuredInvoker()
 
     def invoke(self, agent_name: str, prompt: str):
-        llm = ChatOllama(model=self.model, temperature=self.temperature)
+        llm = ChatOllama(
+            model=self.model,
+            temperature=self.temperature,
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        )
 
         cached = semantic_cache.lookup(agent_name=agent_name, model=self.model, prompt=prompt)
 
