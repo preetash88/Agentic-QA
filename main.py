@@ -1,5 +1,7 @@
 import os
+import time
 from contextlib import asynccontextmanager
+from typing import Callable
 
 from fastapi import FastAPI
 from kafka import KafkaProducer
@@ -13,6 +15,34 @@ from src.api.metrics import router as metrics_router
 from src.api.workflow import router as workflow_router
 
 
+def wait_for_service(
+        service_name: str,
+        connect_fn: Callable,
+        retries: int = 30,
+        delay: int = 2,
+):
+    """
+        Wait until a dependency becomes available.
+    """
+    for attempt in range(1, retries + 1):
+        try:
+            result = connect_fn()
+
+            if result is False:
+                raise RuntimeError("Service not ready")
+
+            print(f"{service_name} is ready.")
+            return
+        except Exception as ex:
+            print(
+                f"Waiting for {service_name} "
+                f"({attempt}/{retries}) : {ex}"
+            )
+            time.sleep(delay)
+
+    raise RuntimeError(f"{service_name} failed to start after {retries} retries.")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Creating Redis Client...")
@@ -22,15 +52,25 @@ async def lifespan(app: FastAPI):
         decode_responses=True,
     )
 
+    wait_for_service("Redis", redis_client.ping)
+
     print("Creating Kafka Producer...")
     kafka_producer = KafkaProducer(
-        bootstrap_servers=os.getenv("KAFKA_BOOTSTRAP", "kafka:9092"),
+        bootstrap_servers=os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092"),
+    )
+    wait_for_service(
+        "Kafka",
+        lambda: kafka_producer.bootstrap_connected()
     )
 
     print("Creating Qdrant Client...")
     qdrant_client = QdrantClient(
         host=os.getenv("QDRANT_HOST", "qdrant"),
-        port=int(os.getenv("QDRANT_PORT", 8080)),
+        port=int(os.getenv("QDRANT_PORT", 6333)),
+    )
+    wait_for_service(
+        "Qdrant",
+        lambda: qdrant_client.get_collections()
     )
 
     print("Registering Redis Client...")

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: qa-sdet
+  namespace: qa-sdet
+
+  labels:
+    app: qa-sdet
+
+spec:
+
+  selector:
+    app: qa-sdet
+
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+
+  type: NodePort

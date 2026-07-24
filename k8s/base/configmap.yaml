@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: qa-sdet-config
+  namespace: qa-sdet
+
+data:
+  REDIS_HOST: "redis-master"
+  REDIS_PORT: "6379"
+
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+
+  QDRANT_HOST: "qdrant"
+  QDRANT_PORT: "6333"
+
+  LANGCHAIN_TRACING_V2: "true"
+
+  LOG_LEVEL: INFO
+  ENVIRONMENT: development

@@ -1,12 +1,14 @@
+import os
 from typing import Optional
 
 from langchain_ollama import ChatOllama
 
-from src.agents.result import SecurityReport
+from src.agents.models import SecurityReport
 
 llm = ChatOllama(
     model="qwen3:8b",
-    temperature=0
+    temperature=0,
+    base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 ).with_structured_output(SecurityReport)
 
 

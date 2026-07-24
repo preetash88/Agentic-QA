@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 
-from src.agents.result import PerformanceReport
+from src.agents.models import PerformanceReport
 
 llm = ChatOllama(
     model="qwen3:8b",
